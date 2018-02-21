@@ -66,15 +66,56 @@ def makeWebhookResult(req):
      #"contextOut": [],
     emptyspace = ""
     return {
-        "speech": "",
-        "messages": [
-        {
-          "type": "0",
-          "speech": "my first response"
-        }        
-        ],
-       
-        "source": "apiai-onlinestore-shipping"
+   "speech":"",
+   "messages":[
+      {
+         "type":3,
+         "platform":"facebook",
+         "imageUrl":"http://charityrefresh.org/ella/asset.hello-ella.gif"
+      },
+      {
+         "type":0,
+         "platform":"facebook",
+         "speech":"First response"
+      },
+      {
+         "type":0,
+         "platform":"facebook",
+         "speech":"My Second Response"
+      },
+      {
+         "type":4,
+         "platform":"facebook",
+         "payload":{
+            "facebook":{
+               "attachment":{
+                  "type":"template",
+                  "payload":{
+                     "template_type":"button",
+                     "text":"What can I help you with?",
+                     "buttons":[
+                        {
+                           "type":"postback",
+                           "title":"Answer A",
+                           "payload":"A"
+                        },
+                        {
+                           "type":"postback",
+                           "title":"Answer B",
+                           "payload":"B"
+                        },
+                        {
+                           "type":"postback",
+                           "title":"Answer C",
+                           "payload":"C"
+                        }
+                     ]
+                  }
+               }
+            }
+         }
+      }
+   ]
 }
 
 if __name__ == '__main__':
