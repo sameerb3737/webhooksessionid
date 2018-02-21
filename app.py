@@ -71,7 +71,7 @@ def makeWebhookResult(req):
         "messages": [
         {
           "type": "0",
-          "platform": "facebook",
+          
           "speech": "my first response"
         }        
         ],
