@@ -66,11 +66,10 @@ def makeWebhookResult(req):
      #"contextOut": [],
     emptyspace = ""
     return {
-        "speech": emptyspace,
+        "speech": "",
         "messages": [
         {
           "type": "0",
-          "platform": "facebook",
           "speech": "my first response"
         }        
         ],
