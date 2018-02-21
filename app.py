@@ -63,18 +63,18 @@ def makeWebhookResult(req):
 
     print("Response:")
     print(speech)
-    
+     #"contextOut": [],
     emptyspace = ""
     return {
         "speech": emptyspace,
         "displayText": emptyspace,
         "messages": [
         {
-          speech1
-        }
-            
+          "type": "0",
+          "speech": "my first response"
+        }        
         ],
-        #"contextOut": [],
+       
         "source": "apiai-onlinestore-shipping"
 }
 
