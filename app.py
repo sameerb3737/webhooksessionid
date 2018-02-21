@@ -83,6 +83,16 @@ def makeWebhookResult(req):
          "platform":"facebook",
          "speech":"My Second Response"
       },
+       {
+          "type": 2,
+          "platform": "facebook",
+          "title": "What can I help you with",
+          "replies": [
+            "A",
+            "B",
+            "C"
+          ]
+     },
       {
          "type":4,
          "platform":"facebook",
