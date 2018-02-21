@@ -55,9 +55,9 @@ def makeWebhookResult(req):
     #zone = parameters.get("shipping-zone")
 
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
-    var5	="          'type': 0,	"
-    var6	="          'platform': 'facebook',	"
-    var7	="          'speech': 'Question Text1'	"
+    var5	="          \"type\": 0,	"
+    var6	="          \"platform\": \"facebook\",	"
+    var7	="          \"speech\": \"Question Text1\"	"
     speech = "HELLO"
     speech1 = var5 + var6  + var7
 
@@ -74,7 +74,7 @@ def makeWebhookResult(req):
         }
             
         ],
-        "contextOut": [],
+        #"contextOut": [],
         "source": "apiai-onlinestore-shipping"
 }
 
