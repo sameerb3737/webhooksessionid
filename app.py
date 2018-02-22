@@ -73,7 +73,7 @@ def makeWebhookResult(req):
      #"contextOut": [],
     emptyspace = ""
     return {
-   "sessionId":sessionID
+   "sessionId":sessionID,
    "speech":"",
    "messages":[
       {
