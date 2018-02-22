@@ -78,8 +78,10 @@ def makeWebhookResult(req):
     usersessionQuestion_file = Path(folderpath + sessionID +".txt")
     if usersessionQuestion_file.exists():
         line = readLine(usersessionQuestion_file,contextName)
+        
         words3 = line.split("#")
         if useranswer != getAnswer(usersessionQuestion_file,contextName):
+        if useranswer != 1:
             correctIncorrectMessage = "Incorrect Answer"
         else:
             correctIncorrectMessage = "Great! Correct Answer"
@@ -95,9 +97,11 @@ def makeWebhookResult(req):
     else:    
         myfile = open( usersessionQuestion_file, 'w')
         for x in range(30):
-            myfile.write(random_line(corpuspath + contextName + ".txt"))
+            #myfile.write(random_line(corpuspath + contextName + ".txt"))
+            myfile.write("1#Question1#Option1#Option2#Option3#Option4#1")
         myfile.close()
-        line = readLine(usersessionQuestion_file +'.txt',1)
+        #line = readLine(usersessionQuestion_file +'.txt',1)
+        line = "1#Question1#Option1#Option2#Option3#Option4#1"
         words3 = line.split("#")
         QuestionText = words3[1]
         Option1 = words3[2]
