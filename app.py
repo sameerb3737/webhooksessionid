@@ -98,12 +98,12 @@ def makeWebhookResult(req):
       {
          "type":0,
          "platform":"facebook",
-         "speech":"My First response sdddddddddddddddddddddddddddd"
+         "speech":"My First response "
       },
       {
          "type":0,
          "platform":"facebook",
-         "speech":"My Second Responsedd ddddddddddddddddddddddddddddd"
+         "speech":"My Second Responsedd "
       },
        {
           "type": 2,
