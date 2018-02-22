@@ -52,7 +52,9 @@ def makeWebhookResult(req):
         return {}
     result = req.get("result")
     sessionID = result.get("sessionId")
-
+    if len(sessionID) <2:
+        sessionID = "Nothing"
+        
     
     contexts = result.get("contexts")
     contextName = contexts[0].get("name");
