@@ -53,7 +53,7 @@ def makeWebhookResult(req):
     result = req.get("result")
     sessionID = result.get("sessionId")
     contexts = result.get("contexts")
-    contextName = contexts.get("name");
+    #contextName = contexts.get("name");
     #parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
 
