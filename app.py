@@ -104,6 +104,7 @@ def makeWebhookResult(req):
     #parameters = result.get("parameters")
     #useranswer = parameters.get("answer")
     
+    contextName = "chapter1"
     correctIncorrectMessage =""
     QuestionText = "Sample Question"
     Option1 ="Option1"
@@ -111,8 +112,10 @@ def makeWebhookResult(req):
     Option3 ="Option3"
     Option4 ="OPtion3"
     
-    folderpath ="/files/"
-    corpuspath = "/corpus/"
+    #folderpath ="/files/"
+    #corpuspath = "/corpus/"
+    folderpath =""
+    corpuspath = ""
     usersessionQuestion_file = Path(folderpath + sessionID +".txt")
     if usersessionQuestion_file.exists():
         line = readLine(usersessionQuestion_file,contextName)
