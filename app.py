@@ -54,7 +54,7 @@ def random_line(fname):
     lines = open(fname).read().splitlines()
     return random.choice(lines)
 def readLine(file_name,contextName)
-    fp = open(usersessionQuestion_file)
+    fp = open(file_name)
     for i, line in enumerate(fp):
         if i == string.replace(string.replace(contextName,"q",""),"Q",""):
             # 26th line
@@ -63,6 +63,25 @@ def readLine(file_name,contextName)
             #answer = words2[3]
             break
     fp.close()
+
+def getAnswer(file_name,contextName)
+    fp = open(file_name)
+    for i, line in enumerate(fp):
+        if i == string.replace(string.replace(contextName,"q",""),"Q",""):
+            # 26th line
+            words3 = line.split("#")
+            QuestionText = words3[1]
+            Option1 = words3[2]
+            Option2 = words3[3]
+            Option3 = words3[4]
+            Option4 = words3[5]
+            Answer = words3[6]
+            return Answer
+            #questiontext
+            #answer = words2[3]
+            break
+    fp.close()
+    
 def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
@@ -76,7 +95,7 @@ def makeWebhookResult(req):
     contexts = result.get("contexts")
     contextName = contexts[0].get("name");
     #parameters = result.get("parameters")
-    #zone = parameters.get("shipping-zone")
+    #useranswer = parameters.get("answer")
     
     correctIncorrectMessage =""
     QuestionText = "Sample Question"
@@ -91,6 +110,17 @@ def makeWebhookResult(req):
     if usersessionQuestion_file.exists():
         line = readLine(usersessionQuestion_file,contextName)
         words3 = line.split("#")
+        if useranswer != getAnswer(usersessionQuestion_file,contextName):
+            correctIncorrectMessage = "Incorrect Answer"
+        else:
+            correctIncorrectMessage = "Great! Correct Answer"
+            
+            
+        QuestionText = words3[1]
+        Option1 = words3[2]
+        Option2 = words3[3]
+        Option3 = words3[4]
+        Option4 = words3[5]
     
   
     else:    
