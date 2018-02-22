@@ -52,8 +52,8 @@ def makeWebhookResult(req):
         return {}
     result = req.get("result")
     sessionID = result.get("sessionId")
-    if len(sessionID) <2:
-        sessionID = "Nothing"
+    
+    sessionID = "Nothing"
         
     
     contexts = result.get("contexts")
@@ -73,7 +73,7 @@ def makeWebhookResult(req):
      #"contextOut": [],
     emptyspace = ""
     return {
-     
+   "sessionId":sessionID
    "speech":"",
    "messages":[
       {
