@@ -73,7 +73,37 @@ def makeWebhookResult(req):
     Option3 ="Option3"
     Option4 ="OPtion3"
     
-   
+    folderpath =""
+    corpuspath = ""
+    usersessionQuestion_file = Path(folderpath + sessionID +".txt")
+    if usersessionQuestion_file.exists():
+        line = readLine(usersessionQuestion_file,contextName)
+        words3 = line.split("#")
+        if useranswer != getAnswer(usersessionQuestion_file,contextName):
+            correctIncorrectMessage = "Incorrect Answer"
+        else:
+            correctIncorrectMessage = "Great! Correct Answer"
+            
+            
+        QuestionText = words3[1]
+        Option1 = words3[2]
+        Option2 = words3[3]
+        Option3 = words3[4]
+        Option4 = words3[5]
+    
+  
+    else:    
+        myfile = open( usersessionQuestion_file, 'w')
+        for x in range(30):
+            myfile.write(random_line(corpuspath + contextName + ".txt"))
+        myfile.close()
+        line = readLine(usersessionQuestion_file +'.txt',1)
+        words3 = line.split("#")
+        QuestionText = words3[1]
+        Option1 = words3[2]
+        Option2 = words3[3]
+        Option3 = words3[4]
+        Option4 = words3[5]
 
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
     var5	="          \"type\": 0,	"
