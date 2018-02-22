@@ -69,24 +69,6 @@ def makeWebhookResult(req):
      #"contextOut": [],
     emptyspace = ""
     return {
-     "contexts": [
-      {
-        "name": "chapter1",
-        "parameters": {
-          "answer": "1",
-          "answer.original": ""
-        },
-        "lifespan": 5
-      },
-      {
-        "name": "q2",
-        "parameters": {
-          "answer": "1",
-          "answer.original": ""
-        },
-        "lifespan": 5
-      }
-    ],
      
    "speech":"",
    "messages":[
@@ -103,7 +85,17 @@ def makeWebhookResult(req):
       {
          "type":0,
          "platform":"facebook",
-         "speech":"My Second Responsedd "
+         "speech":"My Second Responsedd " 
+      },
+        {
+         "type":0,
+         "platform":"facebook",
+         "speech":sessionID
+      },
+        {
+         "type":0,
+         "platform":"facebook",
+         "speech":contextName
       },
        {
           "type": 2,
