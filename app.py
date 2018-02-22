@@ -25,6 +25,7 @@ from urllib.error import HTTPError
 import json
 import os
 import random
+import string
 
 from pathlib import Path
 from flask import Flask
@@ -67,14 +68,26 @@ def makeWebhookResult(req):
     contextName = contexts[0].get("name");
     #parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
-    
-    usersessionQuestion_file = Path("/files/sessionID +'.txt'")
+    folderpath ="/files/"
+    corpuspath = "/corpus/"
+    usersessionQuestion_file = Path(folderpath + sessionID +".txt")
     if usersessionQuestion_file.exists():
-        #do something
+        
+        fp = open(usersessionQuestion_file)
+        for i, line in enumerate(fp):
+            if i == string.replace(string.replace(contextName,"q",""),"Q",""):
+                # 26th line
+                words2 = line.split(" ")
+                #questiontext
+                #answer = words2[3]
+                break
+       fp.close()
+    
+  
     else:    
         myfile = open( sessionID +'.txt', 'w')
         for x in range(30):
-            myfile.write(random_line("/file/" + contextName + ".txt"))
+            myfile.write(random_line(corpuspath + contextName + ".txt"))
         myfile.close()
 
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
