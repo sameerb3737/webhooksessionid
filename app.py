@@ -51,9 +51,9 @@ def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
     result = req.get("result")
-    sessionID = result.get("sessionId")
+    sessionID = req.get("sessionId")
     
-    sessionID = "Nothing"
+  
         
     
     contexts = result.get("contexts")
@@ -73,7 +73,7 @@ def makeWebhookResult(req):
      #"contextOut": [],
     emptyspace = ""
     return {
-   "sessionId":sessionID,
+   
    "speech":"",
    "messages":[
       {
