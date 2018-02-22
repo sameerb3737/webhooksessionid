@@ -53,7 +53,16 @@ def webhook():
 def random_line(fname):
     lines = open(fname).read().splitlines()
     return random.choice(lines)
-
+def readLine(file_name,contextName)
+    fp = open(usersessionQuestion_file)
+    for i, line in enumerate(fp):
+        if i == string.replace(string.replace(contextName,"q",""),"Q",""):
+            # 26th line
+            
+            #questiontext
+            #answer = words2[3]
+            break
+    fp.close()
 def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
@@ -68,27 +77,34 @@ def makeWebhookResult(req):
     contextName = contexts[0].get("name");
     #parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
+    
+    correctIncorrectMessage =""
+    QuestionText = "Sample Question"
+    Option1 ="Option1"
+    Option2 ="Option2"
+    Option3 ="Option3"
+    Option4 ="OPtion3"
+    
     folderpath ="/files/"
     corpuspath = "/corpus/"
     usersessionQuestion_file = Path(folderpath + sessionID +".txt")
     if usersessionQuestion_file.exists():
-        
-        fp = open(usersessionQuestion_file)
-        for i, line in enumerate(fp):
-            if i == string.replace(string.replace(contextName,"q",""),"Q",""):
-                # 26th line
-                words2 = line.split(" ")
-                #questiontext
-                #answer = words2[3]
-                break
-       fp.close()
+        line = readLine(usersessionQuestion_file,contextName)
+        words3 = line.split("#")
     
   
     else:    
-        myfile = open( sessionID +'.txt', 'w')
+        myfile = open( usersessionQuestion_file, 'w')
         for x in range(30):
             myfile.write(random_line(corpuspath + contextName + ".txt"))
         myfile.close()
+        line = readLine(usersessionQuestion_file +'.txt',1)
+        words3 = line.split("#")
+        QuestionText = words3[1]
+        Option1 = words3[2]
+        Option2 = words3[3]
+        Option3 = words3[4]
+        Option4 = words3[5]
 
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
     var5	="          \"type\": 0,	"
@@ -113,14 +129,39 @@ def makeWebhookResult(req):
       {
          "type":0,
          "platform":"facebook",
-         "speech":"My First response "
+         "speech": correctIncorrectMessage
+      },
+      {
+         "type":0,
+         "platform":"facebook",
+         "speech":QuestionText 
+      },
+      {
+         "type":0,
+         "platform":"facebook",
+         "speech":Option1
+      },
+      {
+         "type":0,
+         "platform":"facebook",
+         "speech":Option2
+      },
+      {
+         "type":0,
+         "platform":"facebook",
+         "speech":Option3
+      },
+      {
+         "type":0,
+         "platform":"facebook",
+         "speech":Option4
       },
       {
          "type":0,
          "platform":"facebook",
          "speech":"My Second Responsedd " 
       },
-        {
+      {
          "type":0,
          "platform":"facebook",
          "speech":sessionID
@@ -135,9 +176,10 @@ def makeWebhookResult(req):
           "platform": "facebook",
           "title": "What can I help you with",
           "replies": [
-            "A",
-            "B",
-            "C"
+            "1",
+            "2",
+            "3",
+            "4"
           ]
      },
       {
