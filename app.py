@@ -24,7 +24,7 @@ from urllib.error import HTTPError
 
 import json
 import os
-import chapter1
+import boto3
 
 from pathlib import Path
 from flask import Flask
@@ -75,6 +75,8 @@ def makeWebhookResult(req):
     
     folderpath =""
     corpuspath = ""
+    #key = 'description_' + str(fid) + '.json'
+    #response = s3.put_object(Bucket='d2c-api2-bucket',      Body=json_data,           Key=key                         )
     usersessionQuestion_file = Path(folderpath + sessionID +".txt")
     if usersessionQuestion_file.exists():
         line = readLine(usersessionQuestion_file,contextName)
