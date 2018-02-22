@@ -24,6 +24,7 @@ from urllib.error import HTTPError
 
 import json
 import os
+import random
 
 from flask import Flask
 from flask import request
@@ -47,11 +48,22 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+def random_line(fname):
+    lines = open(fname).read().splitlines()
+    return random.choice(lines)
+
 def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
     result = req.get("result")
     sessionID = req.get("sessionId")
+    
+    
+    
+    myfile = open( sessionID +'.txt', 'w')
+    for x in range(30):
+        myfile.write(random_line(contextName + '.txt'))
+    myfile.close()
     
   
         
