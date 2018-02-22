@@ -95,7 +95,7 @@ def makeWebhookResult(req):
     
   
     else:    
-        myfile = open( usersessionQuestion_file, 'w')
+        myfile = open( usersessionQuestion_file, 'w+')
         for x in range(30):
             #myfile.write(random_line(corpuspath + contextName + ".txt"))
             myfile.write("1#Question1#Option1#Option2#Option3#Option4#1")
