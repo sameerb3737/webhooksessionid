@@ -50,45 +50,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def random_line(fname):
-    lines = open(fname).read().splitlines()
-    return random.choice(lines)
 
-def readLine(file_name,contextName):
-    fp = open(file_name)
-    for i, line in enumerate(fp):
-        if i == string.replace(string.replace(contextName,"q",""),"Q",""):
-            # 26th line
-            
-            #questiontext
-            #answer = words2[3]
-            break
-    fp.close()
-
-def getAnswer(file_name,contextName):
-    QuestionText = "Sample Question"
-    Option1 ="Option1"
-    Option2 ="Option2"
-    Option3 ="Option3"
-    Option4 ="OPtion3"
-    Answer ="1"
-    fp = open(file_name)
-    for i, line in enumerate(fp):
-        if i == string.replace(string.replace(contextName,"q",""),"Q",""):
-            # 26th line
-            words3 = line.split("#")
-            QuestionText = words3[1]
-            Option1 = words3[2]
-            Option2 = words3[3]
-            Option3 = words3[4]
-            Option4 = words3[5]
-            Answer = words3[6]
-            return Answer
-            #questiontext
-            #answer = words2[3]
-            break
-    fp.close()
-    
 def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
@@ -257,6 +219,44 @@ def makeWebhookResult(req):
    ]
 }
 
+def random_line(fname):
+    lines = open(fname).read().splitlines()
+    return random.choice(lines)
+
+def readLine(file_name,contextName):
+    fp = open(file_name)
+    for i, line in enumerate(fp):
+        if i == string.replace(string.replace(contextName,"q",""),"Q",""):
+            # 26th line
+            return line
+            #questiontext
+            #answer = words2[3]
+            break
+    fp.close()
+
+def getAnswer(file_name,contextName):
+    QuestionText = "Sample Question"
+    Option1 ="Option1"
+    Option2 ="Option2"
+    Option3 ="Option3"
+    Option4 ="OPtion3"
+    Answer ="1"
+    fp = open(file_name)
+    for i, line in enumerate(fp):
+        if i == string.replace(string.replace(contextName,"q",""),"Q",""):
+            # 26th line
+            words3 = line.split("#")
+            QuestionText = words3[1]
+            Option1 = words3[2]
+            Option2 = words3[3]
+            Option3 = words3[4]
+            Option4 = words3[5]
+            Answer = words3[6]
+            return Answer
+            #questiontext
+            #answer = words2[3]
+            break
+    fp.close()
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
