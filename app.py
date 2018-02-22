@@ -51,6 +51,9 @@ def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
     result = req.get("result")
+    #sessionID = result.get("sessionId")
+    #contexts = result.get("contexts")
+    #contextName = contexts.get("name");
     #parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
 
@@ -66,6 +69,25 @@ def makeWebhookResult(req):
      #"contextOut": [],
     emptyspace = ""
     return {
+     "contexts": [
+      {
+        "name": "chapter1",
+        "parameters": {
+          "answer": "1",
+          "answer.original": ""
+        },
+        "lifespan": 5
+      },
+      {
+        "name": "q2",
+        "parameters": {
+          "answer": "1",
+          "answer.original": ""
+        },
+        "lifespan": 5
+      }
+    ],
+     
    "speech":"",
    "messages":[
       {
