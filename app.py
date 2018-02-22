@@ -51,9 +51,9 @@ def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
     result = req.get("result")
-    #sessionID = result.get("sessionId")
-    #contexts = result.get("contexts")
-    #contextName = contexts.get("name");
+    sessionID = result.get("sessionId")
+    contexts = result.get("contexts")
+    contextName = contexts.get("name");
     #parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
 
