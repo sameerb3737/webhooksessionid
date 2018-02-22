@@ -26,6 +26,7 @@ import json
 import os
 import random
 
+from pathlib import Path
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -58,13 +59,7 @@ def makeWebhookResult(req):
     result = req.get("result")
     sessionID = req.get("sessionId")
     
-    
-    
-    myfile = open( sessionID +'.txt', 'w')
-    for x in range(30):
-        myfile.write(random_line(contextName + '.txt'))
-    myfile.close()
-    
+      
   
         
     
@@ -72,6 +67,15 @@ def makeWebhookResult(req):
     contextName = contexts[0].get("name");
     #parameters = result.get("parameters")
     #zone = parameters.get("shipping-zone")
+    
+    usersessionQuestion_file = Path("/files/sessionID +'.txt'")
+    if usersessionQuestion_file.exists():
+        #do something
+    else:    
+        myfile = open( sessionID +'.txt', 'w')
+        for x in range(30):
+            myfile.write(random_line("/file/" + contextName + ".txt"))
+        myfile.close()
 
     cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
     var5	="          \"type\": 0,	"
