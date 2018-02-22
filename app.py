@@ -53,7 +53,8 @@ def webhook():
 def random_line(fname):
     lines = open(fname).read().splitlines()
     return random.choice(lines)
-def readLine(file_name,contextName)
+
+def readLine(file_name,contextName):
     fp = open(file_name)
     for i, line in enumerate(fp):
         if i == string.replace(string.replace(contextName,"q",""),"Q",""):
@@ -64,7 +65,13 @@ def readLine(file_name,contextName)
             break
     fp.close()
 
-def getAnswer(file_name,contextName)
+def getAnswer(file_name,contextName):
+    QuestionText = "Sample Question"
+    Option1 ="Option1"
+    Option2 ="Option2"
+    Option3 ="Option3"
+    Option4 ="OPtion3"
+    Answer ="1"
     fp = open(file_name)
     for i, line in enumerate(fp):
         if i == string.replace(string.replace(contextName,"q",""),"Q",""):
